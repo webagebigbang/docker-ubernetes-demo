@@ -12,6 +12,7 @@ spec:
   ports:
     - protocol: TCP
       port: 8010
+      targetPort: 8010
       name: http
 
 ---
@@ -31,11 +32,11 @@ spec:
     spec:
       containers:
       - name: shopfront
-        image: taniaduggal60/shopfront:latest
+        image: webagebigbang/shopfront:latest
         ports:
         - containerPort: 8010
         livenessProbe:
-         httpGet:
+          httpGet:
             path: /health
             port: 8010
           initialDelaySeconds: 30
